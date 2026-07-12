@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD Daudul Islam — Computer Science & Engineering Student</title>
+<meta name="description" content="Portfolio of MD Daudul Islam — CSE student, web developer, and robotics/IoT enthusiast.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%235EEAD4%22>&lt;/&gt;</text></svg>">
+</head>
+<body>
+
+<!-- ============================================================= -->
+<!-- BACKGROUND CIRCUIT CANVAS                                      -->
+<!-- ============================================================= -->
+<canvas id="circuit-canvas"></canvas>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ============================================================= -->
+<!-- CUSTOM CURSOR TRACE (desktop only, decorative)                 -->
+<!-- ============================================================= -->
+<div class="trace-dot" id="traceDot" aria-hidden="true"></div>
+
+<!-- ============================================================= -->
+<!-- NAV                                                            -->
+<!-- ============================================================= -->
+<header class="navbar" id="navbar">
+  <a href="#top" class="brand">
+    <span class="brand-bracket">&lt;</span>DAUDUL<span class="brand-bracket">/&gt;</span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about"><span class="ref">01</span>About</a>
+    <a href="#education"><span class="ref">02</span>Education</a>
+    <a href="#skills"><span class="ref">03</span>Stack</a>
+    <a href="#projects"><span class="ref">04</span>Projects</a>
+    <a href="#achievements"><span class="ref">05</span>Achievements</a>
+    <a href="#contact"><span class="ref">06</span>Connect</a>
+  </nav>
+  <a href="#" class="btn btn-ghost btn-sm" id="resumeBtnNav" target="_blank">
+  <i class="fa-solid fa-eye"></i> View Resume
+</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- ============================================================= -->
+  <!-- HERO                                                           -->
+  <!-- ============================================================= -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="avatar-wrap" id="avatarWrap">
+        <div class="avatar-ring"></div>
+        <img class="avatar-img" id="avatarImg" alt="MD Daudul Islam" src="">
+        <span class="avatar-fallback" id="avatarFallback">DI</span>
+      </div>
+
+      <p class="boot-line" id="bootLine">
+        <span class="prompt">daudul@portfolio:~$</span> <span id="bootText"></span><span class="cursor-blink">▌</span>
+      </p>
+
+      <h1 class="hero-name">
+        MD <span class="text-accent">DAUDUL</span> ISLAM
+      </h1>
+
+      <div class="hero-role">
+        <span class="role-bracket">[</span>
+        <span id="roleText"></span><span class="cursor-blink">|</span>
+        <span class="role-bracket">]</span>
+      </div>
+
+      <p class="hero-tagline" id="heroTagline"></p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-diagram-project"></i> View Projects
+        </a>
+        <a href="#" class="btn btn-outline" id="resumeBtnHero">
+          <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <i class="fa-solid fa-bolt"></i> Connect
+        </a>
+      </div>
+
+      <div class="hero-socials" id="heroSocials"></div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- spine trace running through the page -->
+  <div class="spine" aria-hidden="true"></div>
+
+  <!-- ============================================================= -->
+  <!-- ABOUT                                                          -->
+  <!-- ============================================================= -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="ref-tag">MCU // ABOUT</span></p>
+      <h2 class="section-title">About the Board</h2>
+      <div class="about-grid reveal">
+        <p class="about-summary" id="aboutSummary"></p>
+        <div class="about-meta">
+          <div class="meta-row"><i class="fa-solid fa-location-dot"></i><span id="metaLocation"></span></div>
+          <div class="meta-row"><i class="fa-solid fa-phone"></i><span id="metaPhone"></span></div>
+          <div class="meta-row"><i class="fa-solid fa-envelope"></i><span id="metaEmail"></span></div>
+          <div class="meta-row"><i class="fa-solid fa-graduation-cap"></i><span>Final Semester, CSE</span></div>
+        </div>
+      </div>
+
+      <div class="soft-skills reveal" id="softSkills"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- EDUCATION                                                      -->
+  <!-- ============================================================= -->
+  <section class="section" id="education">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="ref-tag">MCU // TIMELINE</span></p>
+      <h2 class="section-title">Education</h2>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- SKILLS                                                         -->
+  <!-- ============================================================= -->
+  <section class="section" id="skills">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="ref-tag">STACK // COMPONENTS</span></p>
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- PROJECTS                                                       -->
+  <!-- ============================================================= -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="ref-tag">OUT // BUILDS</span></p>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- CERTIFICATIONS + ACHIEVEMENTS                                  -->
+  <!-- ============================================================= -->
+  <section class="section" id="achievements">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="ref-tag">LOG // RECORDS</span></p>
+      <h2 class="section-title">Certifications & Achievements</h2>
+
+      <div class="records-grid">
+        <div class="record-col reveal">
+          <h3 class="record-col-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
+          <div id="certsList"></div>
+        </div>
+        <div class="record-col reveal">
+          <h3 class="record-col-title"><i class="fa-solid fa-trophy"></i> Achievements</h3>
+          <div id="achList"></div>
+        </div>
+      </div>
+
+      <div class="extracurricular reveal">
+        <h3 class="record-col-title"><i class="fa-solid fa-users"></i> Extracurricular</h3>
+        <ul id="extraList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- CONTACT                                                        -->
+  <!-- ============================================================= -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="ref-tag">CONN // OUTPUT</span></p>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="contact-sub">Open to internships, junior developer roles, and interesting collaborations. Reach out — the circuit's always live.</p>
+
+      <div class="contact-grid">
+        <a href="#" class="contact-card" id="contactEmail">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="contact-label">Email</span>
+          <span class="contact-value" id="contactEmailText"></span>
+        </a>
+        <a href="#" class="contact-card" id="contactPhone">
+          <i class="fa-solid fa-phone"></i>
+          <span class="contact-label">Phone</span>
+          <span class="contact-value" id="contactPhoneText"></span>
+        </a>
+        <a href="#" class="contact-card" id="contactGithub" target="_blank" rel="noopener">
+          <i class="fa-brands fa-github"></i>
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">Dawadulopu88</span>
+        </a>
+        <a href="#" class="contact-card" id="contactLinkedin" target="_blank" rel="noopener">
+          <i class="fa-brands fa-linkedin"></i>
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">Md Daudul Islam</span>
+        </a>
+        <a href="#" class="contact-card" id="contactFacebook" target="_blank" rel="noopener">
+          <i class="fa-brands fa-facebook"></i>
+          <span class="contact-label">Facebook</span>
+          <span class="contact-value">Md Daudul Islam</span>
+        </a>
+        <a href="#" class="contact-card" id="contactPortfolio" target="_blank" rel="noopener">
+          <i class="fa-solid fa-globe"></i>
+          <span class="contact-label">Portfolio</span>
+          <span class="contact-value"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Designed &amp; wired by MD Daudul Islam · <span id="year"></span></p>
+    <p class="footer-sub">Built with HTML, CSS &amp; JS — hosted free on GitHub Pages.</p>
+  </footer>
+
+</main>
+
+<!-- ============================================================= -->
+<!-- AI ASSISTANT WIDGET                                            -->
+<!-- ============================================================= -->
+<div class="ai-widget" id="aiWidget">
+  <button class="ai-toggle" id="aiToggle" aria-label="Open portfolio assistant">
+    <i class="fa-solid fa-microchip" id="aiIcon"></i>
+    <span class="ai-pulse"></span>
+  </button>
+
+  <div class="ai-panel" id="aiPanel">
+    <div class="ai-header">
+      <div class="ai-header-title">
+        <i class="fa-solid fa-microchip"></i>
+        <div>
+          <strong>Portfolio Assistant</strong>
+          <small>Ask about skills, projects, education...</small>
+        </div>
+      </div>
+      <button class="ai-close" id="aiClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="ai-messages" id="aiMessages"></div>
+    <div class="ai-suggestions" id="aiSuggestions"></div>
+    <form class="ai-input-row" id="aiForm">
+      <input type="text" id="aiInput" placeholder="e.g. What projects has he built?" autocomplete="off">
+      <button type="submit" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
